@@ -28,7 +28,7 @@ EOF
 cat values.yaml
 
 helm install vault -f values.yaml hashicorp/vault
-
+sleep 10
 while ! kubectl get pods -l app.kubernetes.io/name=vault-agent-injector | grep 1/1 2>/dev/null; do
     sleep 3
   done
@@ -113,4 +113,4 @@ kubectl exec \
       $(kubectl get pod -l app=web -o jsonpath="{.items[0].metadata.name}") \
       -- cat /vault/secrets/index.html
 
-kubectl scale --replicas=2 deployments/web-deployment
+# kubectl scale --replicas=2 deployments/web-deployment

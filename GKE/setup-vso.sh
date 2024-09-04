@@ -227,6 +227,6 @@ kubectl exec \
 
 # kubectl scale --replicas=5 deployments/vso-pki-demo
 
-kubectl exec \
-      $(kubectl get pod -l test=vso-pki-demo -o jsonpath="{.items[4].metadata.name}") \
-      -- cat /etc/secrets/certificate
+# kubectl exec \
+#       $(kubectl get pod -l test=vso-pki-demo -o jsonpath="{.items[4].metadata.name}") \
+#       -- cat /etc/secrets/certificate
